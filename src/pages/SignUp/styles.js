@@ -27,11 +27,7 @@ export const Container = styled.div`
       margin-top: 12px;
       background: #83b727;
     }
-
-    a {
-      text-decoration: none;
-      color: #333;
-      text-align: center;
+    .button-form-back {
       margin-top: 12px;
     }
   }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { TextField, Button } from '@material-ui/core';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import { Container } from './styles';
 
@@ -43,6 +43,7 @@ const SignIn = () => {
         <Button type="submit" className="button-form" variant="contained">
           Entrar
         </Button>
+        <Link to="/signup">Realizar cadastro</Link>
       </form>
     </Container>
   );
