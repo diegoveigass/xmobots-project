@@ -5,10 +5,12 @@ import GlobalStyles from './styles/GlobalStyles';
 
 const App = () => {
   return (
-    <AuthProvider>
+    <>
       <GlobalStyles />
-      <Routes />
-    </AuthProvider>
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
+    </>
   );
 };
 

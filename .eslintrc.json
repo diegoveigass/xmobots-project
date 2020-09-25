@@ -7,7 +7,8 @@
     "plugin:react/recommended",
     "airbnb",
     "prettier",
-    "prettier/react"
+    "prettier/react",
+    "plugin:react-hooks/recommended"
   ],
   "parserOptions": {
     "ecmaFeatures": {
@@ -32,6 +33,8 @@
     "react/prop-types": "off",
     "no-param-reassign": "off",
     "no-console": "off",
-    "no-alert": "off"
+    "no-alert": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   }
 }

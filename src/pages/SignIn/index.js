@@ -1,13 +1,13 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { TextField, Button } from '@material-ui/core';
 import { Link, useHistory } from 'react-router-dom';
 
-import { AuthContext } from '../../hooks/auth';
+import { useAuth } from '../../hooks/auth';
 
 import { Container } from './styles';
 
 const SignIn = () => {
-  const { name, setName } = useContext(AuthContext);
+  const { userLogged, setUserLogged } = useAuth();
 
   const [password, setPassword] = useState('');
 
@@ -29,8 +29,8 @@ const SignIn = () => {
           label="User"
           type="text"
           name="name"
-          value={name}
-          onChange={event => setName(event.target.value)}
+          value={userLogged}
+          onChange={event => setUserLogged(event.target.value)}
         />
         <TextField
           required
