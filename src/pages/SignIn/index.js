@@ -1,34 +1,42 @@
+import React, { useState } from 'react';
 import { TextField, Button } from '@material-ui/core';
-import React, { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { Container } from './styles';
 
 const SignIn = () => {
+  const [user, setUser] = useState('');
+  const [password, setPassword] = useState('');
   const history = useHistory();
 
-  const handleSubmit = useCallback(event => {
+  const handleSignIn = event => {
     event.preventDefault();
 
-    history.push('dashboard');
-  }, []);
+    history.push('dashboard', { user });
+  };
 
   return (
     <Container>
-      <h1>Bem vindo, faça seu login</h1>
-      <form onSubmit={handleSubmit}>
+      <h1>Logon</h1>
+      <form onSubmit={handleSignIn}>
         <TextField
           required
-          type="email"
           id="outlined-basic"
-          label="Email"
           variant="outlined"
+          label="User"
+          type="text"
+          name="user"
+          value={user}
+          onChange={event => setUser(event.target.value)}
         />
         <TextField
           required
           id="outlined-basic"
           label="Password"
+          name="password"
           type="password"
+          value={password}
+          onChange={event => setPassword(event.target.value)}
           variant="outlined"
         />
 
