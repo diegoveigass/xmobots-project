@@ -21,7 +21,6 @@ const SignIn = () => {
       <form onSubmit={handleSignIn}>
         <TextField
           required
-          id="outlined-basic"
           variant="outlined"
           label="User"
           type="text"
@@ -31,7 +30,6 @@ const SignIn = () => {
         />
         <TextField
           required
-          id="outlined-basic"
           label="Password"
           name="password"
           type="password"

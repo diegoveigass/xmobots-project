@@ -36,13 +36,16 @@ const SignUp = () => {
     history.push('/');
   };
 
+  const handleBackToLogin = () => {
+    history.push('/');
+  };
+
   return (
     <Container>
       <h1>Cadastro</h1>
       <form onSubmit={handleSignUp}>
         <TextField
           required
-          id="outlined-basic"
           variant="outlined"
           label="Name"
           type="name"
@@ -52,7 +55,6 @@ const SignUp = () => {
         />
         <TextField
           required
-          id="outlined-basic"
           variant="outlined"
           label="Email"
           type="email"
@@ -62,7 +64,6 @@ const SignUp = () => {
         />
         <TextField
           required
-          id="outlined-basic"
           label="Password"
           name="password"
           type="password"
@@ -74,7 +75,6 @@ const SignUp = () => {
         <TextField
           error={error}
           required
-          id="outlined-basic"
           label="Password Confirmation"
           name="password_confirmation"
           type="password"
@@ -91,7 +91,11 @@ const SignUp = () => {
         >
           Criar
         </Button>
-        <Button type="submit" className="button-form-back" variant="contained">
+        <Button
+          onClick={handleBackToLogin}
+          className="button-form-back"
+          variant="contained"
+        >
           Voltar
         </Button>
       </form>
