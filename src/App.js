@@ -1,11 +1,14 @@
 import React from 'react';
+import Routes from './routes';
+import GlobalStyles from './styles/GlobalStyles';
 
-function App() {
+const App = () => {
   return (
-    <div>
-      <h1>Xmobots</h1>
-    </div>
+    <>
+      <GlobalStyles />
+      <Routes />
+    </>
   );
-}
+};
 
 export default App;
