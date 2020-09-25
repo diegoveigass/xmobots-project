@@ -1,18 +1,22 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { TextField, Button } from '@material-ui/core';
 import { Link, useHistory } from 'react-router-dom';
+
+import { AuthContext } from '../../hooks/auth';
 
 import { Container } from './styles';
 
 const SignIn = () => {
-  const [user, setUser] = useState('');
+  const { name, setName } = useContext(AuthContext);
+
   const [password, setPassword] = useState('');
+
   const history = useHistory();
 
   const handleSignIn = event => {
     event.preventDefault();
 
-    history.push('dashboard', { user });
+    history.push('dashboard');
   };
 
   return (
@@ -24,9 +28,9 @@ const SignIn = () => {
           variant="outlined"
           label="User"
           type="text"
-          name="user"
-          value={user}
-          onChange={event => setUser(event.target.value)}
+          name="name"
+          value={name}
+          onChange={event => setName(event.target.value)}
         />
         <TextField
           required

@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Drawer, Button } from '@material-ui/core';
-import { useHistory } from 'react-router-dom';
-
 import { TileLayer, Marker } from 'react-leaflet';
+
+import { AuthContext } from '../../hooks/auth';
 
 import { Container, MapContainer } from './styles';
 
 const Dashboard = () => {
   const [initialPosition, setInitialPosition] = useState([0, 0]);
-  const history = useHistory();
-
-  const { user } = history.location.state;
+  const { name } = useContext(AuthContext);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(position => {
@@ -26,7 +24,7 @@ const Dashboard = () => {
         <span>
           Bem vindo,
           <br />
-          {user}
+          {name}
         </span>
         <Button variant="contained" component="span">
           Upload
