@@ -1,9 +1,13 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 
 import { Button } from '@material-ui/core';
+import TableLocations from '../../pages/TableLocations';
+
+import { useUpload } from '../../hooks/upload';
 
 function Upload() {
-  const [uploadedFile, setUploadedFile] = useState(null);
+  const { setUploadedFile } = useUpload();
+
   const hiddenInputFile = useRef();
 
   const handleInput = () => {
@@ -17,10 +21,10 @@ function Upload() {
 
     reader.onload = async eventReader => {
       const fileReader = eventReader.target.result;
-      console.log(fileReader.toString());
+      setUploadedFile(JSON.parse(fileReader));
     };
 
-    reader.readAsDataURL(file);
+    reader.readAsText(file);
   };
 
   return (
