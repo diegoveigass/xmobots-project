@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Drawer, Button } from '@material-ui/core';
+import { Drawer } from '@material-ui/core';
 import { TileLayer, Marker } from 'react-leaflet';
 
 import { useAuth } from '../../hooks/auth';
 
 import { Container, MapContainer } from './styles';
+import Upload from '../../components/Upload';
 
 const Dashboard = () => {
   const [initialPosition, setInitialPosition] = useState([0, 0]);
@@ -26,9 +27,7 @@ const Dashboard = () => {
           <br />
           {userLogged}
         </span>
-        <Button variant="contained" component="span">
-          Upload
-        </Button>
+        <Upload />
       </Drawer>
       <MapContainer center={initialPosition} zoom={15}>
         <TileLayer
