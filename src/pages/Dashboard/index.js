@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-import { TileLayer, Marker } from 'react-leaflet';
+import { TileLayer, Circle, Marker } from 'react-leaflet';
+
 import DrawerContainer from '../../components/Drawer';
 
 import { Container, MapContainer } from './styles';
@@ -24,7 +25,9 @@ const Dashboard = () => {
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+
         <Marker position={initialPosition} />
+        <Circle center={initialPosition} radius={5000} />
       </MapContainer>
     </Container>
   );

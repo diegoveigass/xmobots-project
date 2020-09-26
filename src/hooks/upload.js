@@ -8,7 +8,7 @@ export const UploadProvider = ({ children }) => {
     if (storagedData) {
       return JSON.parse(storagedData);
     }
-    return {};
+    return null;
   });
 
   useEffect(() => {

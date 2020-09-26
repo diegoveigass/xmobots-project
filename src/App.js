@@ -1,19 +1,14 @@
 import React from 'react';
-import { AuthProvider } from './hooks/auth';
-import { UploadProvider } from './hooks/upload';
+import AppProvider from './hooks/index';
 import Routes from './routes';
 import GlobalStyles from './styles/GlobalStyles';
 
 const App = () => {
   return (
-    <>
+    <AppProvider>
       <GlobalStyles />
-      <UploadProvider>
-        <AuthProvider>
-          <Routes />
-        </AuthProvider>
-      </UploadProvider>
-    </>
+      <Routes />
+    </AppProvider>
   );
 };
 

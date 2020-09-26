@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 
 import { Button } from '@material-ui/core';
-import TableLocations from '../../pages/TableLocations';
 
 import { useUpload } from '../../hooks/upload';
 

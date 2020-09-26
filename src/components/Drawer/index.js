@@ -25,7 +25,9 @@ const DrawerContainer = () => {
       </span>
       <Upload />
       {uploadedFile !== null && (
-        <Button onClick={handleNavigateToDataFile}>Show data table</Button>
+        <Button style={{ marginTop: 12 }} onClick={handleNavigateToDataFile}>
+          Show data table
+        </Button>
       )}
     </Drawer>
   );
