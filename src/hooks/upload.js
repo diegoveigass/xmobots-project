@@ -1,9 +1,19 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 const UploadContext = createContext();
 
 export const UploadProvider = ({ children }) => {
-  const [uploadedFile, setUploadedFile] = useState(null);
+  const [uploadedFile, setUploadedFile] = useState(() => {
+    const storagedData = localStorage.getItem('@xmobots_data');
+    if (storagedData) {
+      return JSON.parse(storagedData);
+    }
+    return {};
+  });
+
+  useEffect(() => {
+    localStorage.setItem('@xmobots_data', JSON.stringify(uploadedFile));
+  }, [uploadedFile]);
 
   return (
     <UploadContext.Provider value={{ uploadedFile, setUploadedFile }}>
