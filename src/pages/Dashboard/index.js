@@ -41,10 +41,10 @@ const Dashboard = () => {
         />
 
         {positions.map(position => (
-          <>
+          <div key={position}>
             <Marker position={position} />
             <Circle center={position} radius={5000} />
-          </>
+          </div>
         ))}
       </MapContainer>
     </Container>
