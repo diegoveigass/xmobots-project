@@ -9258,13 +9258,6 @@ react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.0, react-i
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-leaflet-coordinates@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/react-leaflet-coordinates/-/react-leaflet-coordinates-1.0.1.tgz#6936a6807acce08fd3f7cf712e8f004c091c01b4"
-  integrity sha512-HNG3HL19exwl+/YsZkRQ1XizyNB3GtU9O/b/TlOmtzutAZ0NZ+WUrI5oDW2gKa3SrgexyOlzwN3TtCG4aNE1VA==
-  dependencies:
-    react-style-object-to-css "^1.1.2"
-
 react-leaflet@^2.7.0:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/react-leaflet/-/react-leaflet-2.7.0.tgz#0e0e452a4903029f0bb564771eab8cf9db8e4517"
@@ -9363,11 +9356,6 @@ react-scripts@3.4.3:
     workbox-webpack-plugin "4.3.1"
   optionalDependencies:
     fsevents "2.1.2"
-
-react-style-object-to-css@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/react-style-object-to-css/-/react-style-object-to-css-1.1.2.tgz#3e97da92c9edf8190e30f4b27026e74285940498"
-  integrity sha512-+5MFULqCCj7wwJJ/ISKFP91ZlHVF1Rv8o0neiTKvt21XDTU5e34tc8hy+XPLeYWYOupdHt25HxxwocvYm3HM6A==
 
 react-transition-group@^4.4.0:
   version "4.4.1"

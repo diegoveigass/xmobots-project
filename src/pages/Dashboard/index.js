@@ -4,10 +4,24 @@ import { TileLayer, Circle, Marker } from 'react-leaflet';
 
 import DrawerContainer from '../../components/Drawer';
 
+import { useUpload } from '../../hooks/upload';
+import { parseLatLong } from '../../utils/parseDMSToLatLong';
+import parseDMS from '../../utils/parseToDMS';
+
 import { Container, MapContainer } from './styles';
 
 const Dashboard = () => {
   const [initialPosition, setInitialPosition] = useState([0, 0]);
+  const { uploadedFile } = useUpload();
+
+  const positions = [];
+
+  if (uploadedFile) {
+    uploadedFile.aerodromes.forEach(aerodrome => {
+      const coords = parseLatLong(parseDMS(aerodrome.description)[0]);
+      positions.push(coords);
+    });
+  }
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(position => {
@@ -26,8 +40,12 @@ const Dashboard = () => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        <Marker position={initialPosition} />
-        <Circle center={initialPosition} radius={5000} />
+        {positions.map(position => (
+          <>
+            <Marker position={position} />
+            <Circle center={position} radius={5000} />
+          </>
+        ))}
       </MapContainer>
     </Container>
   );
