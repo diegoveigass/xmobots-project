@@ -6,6 +6,6 @@ public class Aerodromes {
   String name;
   String city;
   String description;
-  Date createdAt = new Date();
+  Date created_at = new Date();
   Runway runway = new Runway();
 }
