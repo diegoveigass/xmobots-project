@@ -42,6 +42,10 @@ const SignUp = () => {
     history.push('/');
   };
 
+  const condition =
+    !name || !email || !password || !passwordConfirmation || error;
+  console.log(condition);
+
   return (
     <Container>
       <img src={logoImg} alt="xmobots" />
@@ -87,7 +91,7 @@ const SignUp = () => {
         />
 
         <Button
-          disabled={!passwordConfirmation || error}
+          disabled={condition}
           type="submit"
           className="button-form"
           variant="contained"
