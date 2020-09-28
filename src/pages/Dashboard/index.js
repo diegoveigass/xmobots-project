@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { TileLayer, Circle, Marker } from 'react-leaflet';
+import { TileLayer, Circle, Marker, Popup } from 'react-leaflet';
 
 import DrawerContainer from '../../components/Drawer';
 
@@ -11,7 +11,6 @@ import parseDMS from '../../utils/parseToDMS';
 import { Container, MapContainer } from './styles';
 
 const Dashboard = () => {
-  const [initialPosition, setInitialPosition] = useState([0, 0]);
   const { uploadedFile } = useUpload();
 
   const positions = [];
@@ -23,28 +22,25 @@ const Dashboard = () => {
     });
   }
 
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(position => {
-      const { latitude, longitude } = position.coords;
-
-      setInitialPosition([latitude, longitude]);
-    });
-  }, []);
+  positions.map(position => console.log(position[0]));
 
   return (
     <Container>
       <DrawerContainer />
-      <MapContainer center={initialPosition} zoom={15}>
+      <MapContainer center={positions[0]} zoom={13}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
         {positions.map(position => (
-          <div key={position}>
-            <Marker position={position} />
+          <Marker key={position} position={position}>
             <Circle center={position} radius={5000} />
-          </div>
+            <Popup>
+              Latitude: {position[0]} <br />
+              Longitude: {position[1]}
+            </Popup>
+          </Marker>
         ))}
       </MapContainer>
     </Container>

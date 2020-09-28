@@ -12,10 +12,10 @@ export const Container = styled.div`
   width: 100%;
 
   .MuiDrawer-paper {
-    padding: 20px;
+    padding: 16px;
 
     span {
-      margin: 12px 0;
+      margin-bottom: 12px;
     }
   }
 `;
