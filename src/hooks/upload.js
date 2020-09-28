@@ -15,8 +15,14 @@ export const UploadProvider = ({ children }) => {
     localStorage.setItem('@xmobots_data', JSON.stringify(uploadedFile));
   }, [uploadedFile]);
 
+  function cleanData() {
+    setUploadedFile(null);
+  }
+
   return (
-    <UploadContext.Provider value={{ uploadedFile, setUploadedFile }}>
+    <UploadContext.Provider
+      value={{ uploadedFile, setUploadedFile, cleanData }}
+    >
       {children}
     </UploadContext.Provider>
   );
@@ -29,7 +35,7 @@ export const useUpload = () => {
     throw new Error('useUpload must be used within a UploadProvider');
   }
 
-  const { uploadedFile, setUploadedFile } = context;
+  const { uploadedFile, setUploadedFile, cleanData } = context;
 
-  return { uploadedFile, setUploadedFile };
+  return { uploadedFile, setUploadedFile, cleanData };
 };

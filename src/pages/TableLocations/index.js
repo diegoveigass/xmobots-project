@@ -18,7 +18,7 @@ import { useUpload } from '../../hooks/upload';
 import logoImg from '../../assets/xmobots-dark.svg';
 
 const TableLocations = () => {
-  const { uploadedFile } = useUpload();
+  const { uploadedFile, cleanData } = useUpload();
   const history = useHistory();
 
   const handleGoBack = () => {
@@ -80,6 +80,9 @@ const TableLocations = () => {
 
       <Button onClick={handleGoBack} style={{ marginTop: 12 }}>
         Voltar
+      </Button>
+      <Button onClick={cleanData} style={{ marginTop: 12 }}>
+        Limpar dados
       </Button>
     </Container>
   );

@@ -44,7 +44,6 @@ const SignUp = () => {
 
   const condition =
     !name || !email || !password || !passwordConfirmation || error;
-  console.log(condition);
 
   return (
     <Container>
