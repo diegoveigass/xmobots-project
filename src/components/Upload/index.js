@@ -16,6 +16,13 @@ function Upload() {
   const handleInputChange = event => {
     const file = event.target.files[0];
 
+    if (file.type !== 'application/json') {
+      alert('Somente arquivo JSON pode ser adicionado');
+      return;
+    }
+
+    alert('Arquivo carregado com sucesso!');
+
     const reader = new FileReader();
 
     reader.onload = async eventReader => {
