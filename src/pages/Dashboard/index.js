@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { TileLayer, Circle, Marker, Popup } from 'react-leaflet';
 
@@ -11,7 +11,15 @@ import parseDMS from '../../utils/parseToDMS';
 import { Container, MapContainer } from './styles';
 
 const Dashboard = () => {
+  const [location, setLocation] = useState([0, 0]);
   const { uploadedFile } = useUpload();
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(position => {
+      const { latitude, longitude } = position.coords;
+      setLocation([latitude, longitude]);
+    });
+  }, []);
 
   const positions = [];
 
@@ -22,12 +30,10 @@ const Dashboard = () => {
     });
   }
 
-  positions.map(position => console.log(position[0]));
-
   return (
     <Container>
       <DrawerContainer />
-      <MapContainer center={positions[0]} zoom={13}>
+      <MapContainer center={uploadedFile ? positions[0] : location} zoom={14}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
