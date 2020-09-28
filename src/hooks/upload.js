@@ -26,7 +26,7 @@ export const useUpload = () => {
   const context = useContext(UploadContext);
 
   if (!context) {
-    throw new Error('useAuth must be used within a AuthProvider');
+    throw new Error('useUpload must be used within a UploadProvider');
   }
 
   const { uploadedFile, setUploadedFile } = context;

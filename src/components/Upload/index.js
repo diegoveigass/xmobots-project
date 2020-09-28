@@ -25,7 +25,7 @@ function Upload() {
 
     const reader = new FileReader();
 
-    reader.onload = async eventReader => {
+    reader.onload = eventReader => {
       const fileReader = eventReader.target.result;
       setUploadedFile(JSON.parse(fileReader));
     };
