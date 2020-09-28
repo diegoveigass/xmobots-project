@@ -7,6 +7,8 @@ import { useUpload } from '../../hooks/upload';
 
 import Upload from '../Upload';
 
+import logoImg from '../../assets/xmobots-dark.svg';
+
 const DrawerContainer = () => {
   const history = useHistory();
   const { userLogged } = useAuth();
@@ -17,7 +19,12 @@ const DrawerContainer = () => {
   };
 
   return (
-    <Drawer anchor="left" open variant="permanent">
+    <Drawer
+      PaperProps={{ style: { backgroundColor: '#E0E0E0' } }}
+      anchor="left"
+      variant="permanent"
+    >
+      <img src={logoImg} alt="xmobots" />
       <span>
         Bem vindo,
         <br />
@@ -25,8 +32,12 @@ const DrawerContainer = () => {
       </span>
       <Upload />
       {uploadedFile !== null && (
-        <Button style={{ marginTop: 12 }} onClick={handleNavigateToDataFile}>
-          Show data table
+        <Button
+          fullWidth
+          style={{ marginTop: 12 }}
+          onClick={handleNavigateToDataFile}
+        >
+          Data table
         </Button>
       )}
     </Drawer>

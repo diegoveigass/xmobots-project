@@ -15,6 +15,8 @@ import { useHistory } from 'react-router-dom';
 import parseDMS from '../../utils/parseToDMS';
 import { useUpload } from '../../hooks/upload';
 
+import logoImg from '../../assets/xmobots-dark.svg';
+
 const TableLocations = () => {
   const { uploadedFile } = useUpload();
   const history = useHistory();
@@ -24,14 +26,30 @@ const TableLocations = () => {
   };
 
   return (
-    <Container style={{ padding: 20 }}>
+    <Container
+      style={{
+        marginTop: 200,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+      }}
+    >
+      <img
+        src={logoImg}
+        alt="xmobots"
+        style={{ height: 100, justifyContent: 'center' }}
+      />
       {!uploadedFile ? (
         <h2 style={{ textAlign: 'center' }}>
           Faça upload de um arquivo para visualizar
         </h2>
       ) : (
         <TableContainer component={Paper}>
-          <Table arial-label="simple table">
+          <Table
+            arial-label="simple table"
+            style={{ backgroundColor: '#f5f5f5' }}
+          >
             <TableHead>
               <TableRow>
                 <TableCell align="left">Nome</TableCell>

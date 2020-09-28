@@ -12,7 +12,7 @@ export const Container = styled.div`
   margin: 0 auto;
 
   h1 {
-    margin: 24px 0;
+    margin-bottom: 24px;
   }
 
   form {

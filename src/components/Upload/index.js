@@ -28,8 +28,8 @@ function Upload() {
 
   return (
     <>
-      <Button onClick={handleInput} variant="contained">
-        Upload
+      <Button fullWidth onClick={handleInput} variant="text">
+        Upload file
         <input
           accept="application/json"
           type="file"

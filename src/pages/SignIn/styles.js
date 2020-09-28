@@ -12,7 +12,7 @@ export const Container = styled.div`
   margin: 0 auto;
 
   h1 {
-    margin: 24px 0;
+    margin-bottom: 24px;
   }
 
   form {
@@ -30,9 +30,9 @@ export const Container = styled.div`
 
     a {
       text-decoration: none;
-      color: #333;
       text-align: center;
       margin-top: 12px;
+      color: #111;
     }
   }
 `;

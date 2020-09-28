@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { TextField, Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 
+import logoImg from '../../assets/xmobots-dark.svg';
+
 import { Container } from './styles';
 
 const SignUp = () => {
@@ -42,6 +44,7 @@ const SignUp = () => {
 
   return (
     <Container>
+      <img src={logoImg} alt="xmobots" />
       <h1>Cadastro</h1>
       <form onSubmit={handleSignUp}>
         <TextField

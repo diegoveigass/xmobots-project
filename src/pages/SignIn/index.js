@@ -4,6 +4,8 @@ import { Link, useHistory } from 'react-router-dom';
 
 import { useAuth } from '../../hooks/auth';
 
+import logoImg from '../../assets/xmobots-dark.svg';
+
 import { Container } from './styles';
 
 const SignIn = () => {
@@ -21,6 +23,7 @@ const SignIn = () => {
 
   return (
     <Container>
+      <img src={logoImg} alt="xmobots" />
       <h1>Logon</h1>
       <form onSubmit={handleSignIn}>
         <TextField
