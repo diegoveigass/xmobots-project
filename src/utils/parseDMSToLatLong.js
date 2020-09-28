@@ -12,7 +12,7 @@ function DMSToLatLong(hour, minutes, seconds, indicator) {
 }
 
 export function parseLatLong(dms) {
-  const latReg = /0?(\d{2})(\d{2})(\d{2}([,.]\d{2})?)([S])/i;
+  const latReg = /(\d{2})(\d{2})(\d{2}([,.]\d{2})?)([S])/i;
   const latResult = latReg.exec(dms);
 
   const lat = DMSToLatLong(
@@ -22,7 +22,7 @@ export function parseLatLong(dms) {
     latResult[5],
   );
 
-  const longReg = /0?(\d{2})(\d{2})(\d{2}([,.]\d{2})?)([W])/i;
+  const longReg = /(\d{2})(\d{2})(\d{2}([,.]\d{2})?)([W])/i;
   const longResult = longReg.exec(dms);
 
   const long = DMSToLatLong(
